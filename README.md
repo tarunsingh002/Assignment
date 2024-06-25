@@ -12,4 +12,4 @@ Its state of being already added once is persisted over the local Storage so tha
 
 ## Project has been deployed to https://ng-assignment.vercel.app/
 
-### The add Transaction button on the form to add transactions will be disabled if any of the fields are left empty. It will be automatically enabled once the all the fields have some value.
+The add Transaction button on the form to add transactions will be disabled if any of the fields are left empty. It will be automatically enabled once the all the fields have some value.
