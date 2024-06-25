@@ -1,0 +1,23 @@
+<div class="container">
+  <div
+    *ngIf="!transactions.length"
+    class="w-100 empty d-flex align-items-center justify-content-center"
+  >
+    <h3 class="display-3">You have no transactions</h3>
+  </div>
+  <div *ngIf="transactions.length">
+    <h3 class="display-3 text-center mb-3">All Transactions</h3>
+    <div class="card mb-5" *ngFor="let t of transactions; let i = index">
+      <div class="card-header">
+        {{ t.type }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ t.name }}</h5>
+        <p class="card-text">{{ t.amount }}</p>
+        <p class="card-text">{{ t.date }}</p>
+        <a [routerLink]="['/edit', t.transactionId]" class="btn btn-primary">Edit</a>
+        <a (click)="deleteTransaction(t.transactionId)" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
