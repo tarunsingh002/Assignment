@@ -14,7 +14,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ t.name }}</h5>
         <p class="card-text">{{ t.amount }}</p>
-        <p class="card-text">{{ t.date }}</p>
+        <p class="card-text">{{ t.date | date }}</p>
         <a [routerLink]="['/edit', t.transactionId]" class="btn btn-primary">Edit</a>
         <a (click)="deleteTransaction(t.transactionId)" class="btn btn-primary">Delete</a>
       </div>

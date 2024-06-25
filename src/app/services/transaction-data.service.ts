@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Transaction} from '../models/transaction.model';
+import {sampleTransactions} from '../SampleData';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,18 @@ export class TransactionDataService {
   transactions: Transaction[] = [];
   trackOfId = 1;
 
+  sampleData = sampleTransactions;
+
   constructor() {}
+
+  addSampleData() {
+    this.getTransactions();
+    this.addBulkTransaction(this.sampleData);
+  }
+
+  addBulkTransaction(transactions: Transaction[]) {
+    transactions.forEach((t) => this.addTransaction(t));
+  }
 
   addTransaction(t: Transaction) {
     let currentId = localStorage.getItem('trackOfId')
@@ -24,7 +36,9 @@ export class TransactionDataService {
   }
 
   getTransactions() {
-    this.transactions = JSON.parse(localStorage.getItem('transactions'));
+    this.transactions = localStorage.getItem('transactions')
+      ? JSON.parse(localStorage.getItem('transactions'))
+      : [];
     this.transactionsChanged.next(this.transactions);
     return this.transactions;
   }

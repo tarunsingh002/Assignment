@@ -27,7 +27,7 @@ export class SummaryComponent implements OnInit {
 
       let length = this.transactions.length;
 
-      if (length > 5) this.transactions = this.transactions.slice(Math.max(length - 5, 0));
+      if (length > 4) this.transactions = this.transactions.slice(length - 4, length);
     });
   }
 }

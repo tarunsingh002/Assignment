@@ -51,12 +51,13 @@ export class TransactionFormComponent implements OnInit {
   }
 
   onSubmit(rf: FormGroup) {
+    // this.dservice.getTransactions();
     let value = rf.value;
     let transaction = new Transaction(
       value.name,
       value.description,
       value.amount,
-      value.date,
+      new Date(value.date),
       value.type,
       value.category
     );
