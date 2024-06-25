@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Sample Data of 4 transactions was added for better presentation of the project.
 
-It will be added just at the initialization of the application.
+It will be added when you first open the application.
 
 Its state of being already added once is persisted over the local Storage so that this sample data is not re-added every time you refresh the application.
 
