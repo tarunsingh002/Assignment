@@ -1,12 +1,12 @@
 <div class="container">
   <div
     *ngIf="!transactions.length"
-    class="w-100 empty d-flex align-items-center justify-content-center"
+    class="w-100 empty no-transactions d-flex align-items-center justify-content-center"
   >
     <h3 class="display-3">You have no transactions</h3>
   </div>
   <div *ngIf="transactions.length">
-    <h3 class="display-3 text-center mb-5">All Transactions</h3>
+    <h3 class="display-4 text-center mb-5">All Transactions</h3>
     <div class="card mb-5" *ngFor="let t of transactions; let i = index">
       <div class="card-header d-flex justify-content-between">
         <h3 class="mb-0">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="card-footer d-md-flex justify-content-between">
-        <p class="w-75 card-text mb-md-0 mb-2 align-self-center">{{ t.description }}</p>
+        <p class="w-75 card-text mb-md-0 mb-3 align-self-center">{{ t.description }}</p>
         <div>
           <a [routerLink]="['/edit', t.transactionId]" class="btn btn-secondary mr-2">Edit</a>
           <a (click)="deleteTransaction(t.transactionId)" class="btn btn-danger">Delete</a>

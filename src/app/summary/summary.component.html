@@ -1,12 +1,12 @@
 <div class="container">
   <div
     *ngIf="!transactions.length"
-    class="w-100 empty d-flex align-items-center justify-content-center"
+    class="w-100 empty d-flex align-items-center justify-content-center no-transactions"
   >
     <h3 class="display-4">You have no transactions</h3>
   </div>
   <div *ngIf="transactions.length">
-    <h3 class="display-3 text-center mb-5">Recent Transactions</h3>
+    <h3 class="display-4 text-center mb-5">Recent Transactions</h3>
     <div class="card mb-5" *ngFor="let t of transactions; let i = index">
       <div class="card-header">
         <h3>
