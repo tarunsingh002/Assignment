@@ -6,17 +6,29 @@
     <h3 class="display-3">You have no transactions</h3>
   </div>
   <div *ngIf="transactions.length">
-    <h3 class="display-3 text-center mb-3">All Transactions</h3>
+    <h3 class="display-3 text-center mb-5">All Transactions</h3>
     <div class="card mb-5" *ngFor="let t of transactions; let i = index">
-      <div class="card-header">
-        {{ t.type }}
+      <div class="card-header d-flex justify-content-between">
+        <h3 class="mb-0">
+          {{ t.name }}
+          <span [ngClass]="t.type === 'income' ? 'badge badge-info' : 'badge badge-warning'">{{
+            t.type
+          }}</span>
+        </h3>
+        <p class="card-text align-self-center">{{ t.date | date }}</p>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{ t.name }}</h5>
-        <p class="card-text">{{ t.amount }}</p>
-        <p class="card-text">{{ t.date | date }}</p>
-        <a [routerLink]="['/edit', t.transactionId]" class="btn btn-primary">Edit</a>
-        <a (click)="deleteTransaction(t.transactionId)" class="btn btn-primary">Delete</a>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">{{ t.category }}</h5>
+          <p class="card-text mb-0">Rs.{{ t.amount }}</p>
+        </div>
+      </div>
+      <div class="card-footer d-md-flex justify-content-between">
+        <p class="w-75 card-text mb-md-0 mb-2 align-self-center">{{ t.description }}</p>
+        <div>
+          <a [routerLink]="['/edit', t.transactionId]" class="btn btn-secondary mr-2">Edit</a>
+          <a (click)="deleteTransaction(t.transactionId)" class="btn btn-danger">Delete</a>
+        </div>
       </div>
     </div>
   </div>
