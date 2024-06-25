@@ -4,7 +4,7 @@ export const sampleTransactions = [
     description: 'Salary from my job.',
     amount: 30000,
     category: 'Wage',
-    date: new Date('2024-06-01'),
+    date: '2024-06-01',
     type: 'income',
   },
   {
@@ -12,7 +12,7 @@ export const sampleTransactions = [
     description: 'Interest from Investments for the Month of May',
     amount: 10000,
     category: 'Earnings from Investments',
-    date: new Date('2024-06-01'),
+    date: '2024-06-01',
     type: 'income',
   },
   {
@@ -20,7 +20,7 @@ export const sampleTransactions = [
     description: 'Flat Rent for the month of May',
     amount: 10000,
     category: 'Accomodation',
-    date: new Date('2024-06-02'),
+    date: '2024-06-02',
     type: 'expense',
   },
   {
@@ -28,7 +28,7 @@ export const sampleTransactions = [
     description: 'Weekly groceries shooping',
     amount: 1700,
     category: 'Kitchen Supplies',
-    date: new Date('2024-06-10'),
+    date: '2024-06-10',
     type: 'expense',
   },
 ];

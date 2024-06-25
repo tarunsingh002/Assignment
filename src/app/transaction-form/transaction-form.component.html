@@ -15,7 +15,13 @@
         </div>
         <div class="mb-3">
           <label class="form-label" for="description">Description</label>
-          <input type="text" id="description" formControlName="description" class="form-control" />
+          <textarea
+            type="text"
+            id="description"
+            formControlName="description"
+            class="form-control"
+            rows="4"
+          ></textarea>
           <small
             *ngIf="
               reactiveForm.controls['description'].invalid &&

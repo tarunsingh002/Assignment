@@ -57,7 +57,7 @@ export class TransactionFormComponent implements OnInit {
       value.name,
       value.description,
       value.amount,
-      new Date(value.date),
+      value.date,
       value.type,
       value.category
     );
