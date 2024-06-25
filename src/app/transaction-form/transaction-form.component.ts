@@ -69,7 +69,7 @@ export class TransactionFormComponent implements OnInit {
     if (this.editMode) {
       transaction.transactionId = this.id;
       this.dservice.editTransaction(this.id, transaction);
-      this.route.navigate(['all']);
+      this.route.navigate(['summary']);
     } else {
       this.dservice.addTransaction(transaction);
 
