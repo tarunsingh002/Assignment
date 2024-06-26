@@ -53,12 +53,12 @@
     </div>
 
     <div
-      *ngIf="(usingSearch || usingSorting) && transactions.length"
+      *ngIf="usingSearch || usingSorting"
       class="d-flex justify-content-center mb-5 results-line"
     >
       <div *ngIf="usingSearch && usingSorting" class="lead">
         {{
-          'These are the ' +
+          'We found ' +
             transactions.length +
             ' transaction(s) per your applied search query in the required sorting'
         }}
