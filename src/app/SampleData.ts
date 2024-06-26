@@ -17,7 +17,7 @@ export const sampleTransactions = [
   },
   {
     name: 'Rent',
-    description: 'Flat Rent for the month of May',
+    description: 'Flat Rent for the month of June',
     amount: 10900,
     category: 'Accomodation',
     date: '2024-06-02',

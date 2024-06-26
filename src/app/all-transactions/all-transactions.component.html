@@ -1,12 +1,76 @@
 <div class="container">
   <div
-    *ngIf="!transactions.length"
+    *ngIf="!allTransactions.length"
     class="w-100 empty no-transactions d-flex align-items-center justify-content-center"
   >
     <h3 class="display-4">You have no transactions</h3>
   </div>
-  <div *ngIf="transactions.length">
+  <div *ngIf="allTransactions.length">
     <h3 class="display-4 text-center mb-5">All Transactions</h3>
+
+    <div class="row d-flex justify-content-between mt-2 mb-5">
+      <!-- Search Bar -->
+      <div class="col-sm-6 col-lg-6 col-xl-4 mb-4 mb-sm-0">
+        <form [formGroup]="reactiveForm">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><svg xmlns="http://www.w3.org/2000/svg " class="icon" viewBox="0 0 512 512">
+                  <path
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter a name or a category"
+              formControlName="searchTerm"
+            />
+          </div>
+        </form>
+      </div>
+
+      <!-- Sorting -->
+
+      <div class="col-sm-6 col-lg-6 col-xl-4">
+        <form [formGroup]="reactiveForm1">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Sort By</label>
+            </div>
+            <select formControlName="sortByCode" class="custom-select" id="inputGroupSelect01">
+              <option value="0">Default Sorting</option>
+              <option value="1">Most Recent First</option>
+              <option value="2">Most Recent Last</option>
+              <option value="3">Amount Ascending</option>
+              <option value="4">Amount Descending</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      *ngIf="(usingSearch || usingSorting) && transactions.length"
+      class="d-flex justify-content-center mb-5 results-line"
+    >
+      <div *ngIf="usingSearch && usingSorting" class="lead">
+        {{
+          'These are the ' +
+            transactions.length +
+            ' transaction(s) per your applied search query in the required sorting'
+        }}
+      </div>
+      <div *ngIf="usingSearch && !usingSorting" class="lead">
+        {{ 'We found ' + transactions.length + ' transaction(s) as per your search query' }}
+      </div>
+      <div *ngIf="!usingSearch && usingSorting" class="lead">
+        {{ 'Transaction(s) as per required sorting' }}
+      </div>
+    </div>
+
     <div class="card mb-5" *ngFor="let t of transactions; let i = index">
       <div class="card-header d-flex justify-content-between">
         <h3 class="mb-0">
